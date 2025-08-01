@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCG Customer Screening</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="container">
+                <div class="header-content">
+                    <img src="scg-logo.png" alt="SCG Logo" class="logo">
+                    <div class="booth-id">Expo Booth ID: <span id="boothId">SCG2025</span></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="app-main">
+            <div class="container">
+                <div id="main-menu" class="content-section active">
+                    <h1 class="section-title">โปรดเลือกบริการที่ลูกค้าสนใจ</h1>
+                    <div class="service-buttons">
+                        <button class="service-btn" data-service="new-roof">
+                            <i class="bi bi-house-add"></i>
+                            <span>ติดตั้งหลังคาบ้านใหม่</span>
+                            <small>New Roof Install</small>
+                        </button>
+                        <button class="service-btn" data-service="renovation">
+                            <i class="bi bi-tools"></i>
+                            <span>ปรับปรุงหลังคาบ้านเก่า</span>
+                            <small>Roof Renovation</small>
+                        </button>
+                        <button class="service-btn" data-service="metal-roof">
+                            <i class="bi bi-layers"></i>
+                            <span>เปลี่ยนหลังคาเมทัลเอสซีจี</span>
+                            <small>SCG Metal Roof</small>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- New Roof Install Form -->
+                <div id="new-roof-form" class="content-section">
+                    <div class="form-header">
+                        <button class="back-btn"><i class="bi bi-arrow-left"></i></button>
+                        <h2>ติดตั้งหลังคาบ้านใหม่</h2>
+                    </div>
+                    <form id="newRoofForm" class="needs-validation" novalidate>
+                        <div class="progress-indicator">
+                            <div class="progress-step active" data-step="1">ข้อมูลบริการ</div>
+                            <div class="progress-step" data-step="2">ข้อมูลติดต่อ</div>
+                        </div>
+                        
+                        <div class="form-step active" data-step="1">
+                            <div class="form-group">
+                                <label for="houseArea">พื้นที่บ้าน (ตร.ม.)</label>
+                                <input type="number" id="houseArea" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>แพ็กเกจบริการมุงหลังคาครบวงจร เอสซีจี</label>
+                                <div class="radio-cards">
+                                    <div class="radio-card">
+                                        <input type="radio" id="package1" name="package" value="Premium Top Hat (Marine)" required>
+                                        <label for="package1">Premium Top Hat (Marine)</label>
+                                    </div>
+                                    <div class="radio-card">
+                                        <input type="radio" id="package2" name="package" value="Top Hat">
+                                        <label for="package2">Top Hat</label>
+                                    </div>
+                                    <div class="radio-card">
+                                        <input type="radio" id="package3" name="package" value="Complete Roof">
+                                        <label for="package3">Complete Roof</label>
+                                    </div>
+                                    <div class="radio-card">
+                                        <input type="radio" id="package4" name="package" value="Value Roof">
+                                        <label for="package4">Value Roof</label>
+                                    </div>
+                                    <div class="radio-card">
+                                        <input type="radio" id="package5" name="package" value="Saver Roof">
+                                        <label for="package5">Saver Roof</label>
+                                    </div>
+                                    <div class="radio-card">
+                                        <input type="radio" id="package6" name="package" value="Truss Service">
+                                        <label for="package6">Truss Service</label>
+                                    </div>
+                                    <div class="radio-card">
+                                        <input type="radio" id="package7" name="package" value="Roofing Service">
+                                        <label for="package7">Roofing Service</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>สถานะการก่อสร้าง</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="status1" name="constructionStatus" value="โครงสร้าง/รากฐาน" required>
+                                        <label for="status1">โครงสร้าง/รากฐาน</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="status2" name="constructionStatus" value="หลังคา">
+                                        <label for="status2">หลังคา</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>แผนการก่อสร้าง</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="plan1" name="constructionPlan" value="ภายใน 6 เดือน" required>
+                                        <label for="plan1">ภายใน 6 เดือน</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="plan2" name="constructionPlan" value="ภายใน 1 ปี">
+                                        <label for="plan2">ภายใน 1 ปี</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="plan3" name="constructionPlan" value="ภายใน 2 ปี">
+                                        <label for="plan3">ภายใน 2 ปี</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="planOther" name="constructionPlan" value="อื่นๆ">
+                                        <label for="planOther">อื่นๆ</label>
+                                    </div>
+                                </div>
+                                <input type="text" id="planOtherText" class="form-control mt-2 d-none" placeholder="โปรดระบุ">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="budget">งบประมาณ (บาท)</label>
+                                <div class="input-group">
+                                    <input type="number" id="budget" class="form-control" required>
+                                    <span class="input-group-text">บาท</span>
+                                </div>
+                            </div>
+
+                            <div class="form-buttons">
+                                <button type="button" class="btn btn-next">ถัดไป</button>
+                            </div>
+                        </div>
+
+                        <div class="form-step" data-step="2">
+                            <!-- Contact information form fields will be added here -->
+                            <div class="form-group">
+                                <label>ประเภท Lead</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="leadType1" name="leadType" value="Lead Opp" required>
+                                        <label for="leadType1">Lead Opp</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="leadType2" name="leadType" value="Lead Sale">
+                                        <label for="leadType2">Lead Sale</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>ประเภทลูกค้า</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="customerType1" name="customerType" value="เจ้าของบ้าน" required>
+                                        <label for="customerType1">เจ้าของบ้าน</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="customerType2" name="customerType" value="ผู้รับเหมา">
+                                        <label for="customerType2">ผู้รับเหมา</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="customerType3" name="customerType" value="นักออกแบบ">
+                                        <label for="customerType3">นักออกแบบ</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="customerType4" name="customerType" value="อื่นๆ">
+                                        <label for="customerType4">อื่นๆ</label>
+                                    </div>
+                                </div>
+                                <input type="text" id="customerTypeOther" class="form-control mt-2 d-none" placeholder="โปรดระบุ">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="fullName">ชื่อ-นามสกุล</label>
+                                <input type="text" id="fullName" name="fullName" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">อีเมล</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">โทรศัพท์</label>
+                                <input type="tel" id="phone" name="phone" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address">ที่อยู่</label>
+                                <input type="text" id="address" name="address" class="form-control" placeholder="บ้านเลขที่ + ถนน" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subDistrict">ตำบล/แขวง</label>
+                                <input type="text" id="subDistrict" name="subDistrict" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="district">อำเภอ/เขต</label>
+                                <input type="text" id="district" name="district" class="form-control" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="province">จังหวัด</label>
+                                <input type="text" id="province" name="province" class="form-control" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="zipCode">รหัสไปรษณีย์</label>
+                                <input type="text" id="zipCode" name="zipCode" class="form-control" readonly>
+                            </div>
+
+                            <div class="form-buttons">
+                                <button type="button" class="btn btn-prev">ย้อนกลับ</button>
+                                <button type="submit" class="btn btn-submit">ส่งข้อมูล</button>
+                            </div>
+                        </div>
+                        <input type="hidden" name="serviceType" value="new-roof">
+                    </form>
+                </div>
+
+                <!-- Roof Renovation Form -->
+                <div id="renovation-form" class="content-section">
+                    <div class="form-header">
+                        <button class="back-btn"><i class="bi bi-arrow-left"></i></button>
+                        <h2>ปรับปรุงหลังคาบ้านเก่า</h2>
+                    </div>
+                    <form id="renovationForm" class="needs-validation" novalidate>
+                        <div class="progress-indicator">
+                            <div class="progress-step active" data-step="1">ข้อมูลบริการ</div>
+                            <div class="progress-step" data-step="2">ข้อมูลติดต่อ</div>
+                        </div>
+                        
+                        <div class="form-step active" data-step="1">
+                            <div class="form-group">
+                                <label>รูปแบบบ้านของท่าน</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="houseType1" name="houseType" value="บ้านเดี่ยว" required>
+                                        <label for="houseType1">บ้านเดี่ยว</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="houseType2" name="houseType" value="ทาวน์โฮม">
+                                        <label for="houseType2">ทาวน์โฮม</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="houseType3" name="houseType" value="อื่นๆ">
+                                        <label for="houseType3">อื่นๆ</label>
+                                    </div>
+                                </div>
+                                <input type="text" id="houseTypeOther" class="form-control mt-2 d-none" placeholder="โปรดระบุ">
+                            </div>
+
+                            <div class="form-group">
+                                <label>ปัญหาหลังคาที่ท่านพบ</label>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="roofProblem1" name="roofProblems" value="หลังคารั่ว">
+                                        <label for="roofProblem1">หลังคารั่ว</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="roofProblem2" name="roofProblems" value="หลังคาสีซีด">
+                                        <label for="roofProblem2">หลังคาสีซีด</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="roofProblem3" name="roofProblems" value="อื่นๆ">
+                                        <label for="roofProblem3">อื่นๆ</label>
+                                    </div>
+                                </div>
+                                <input type="text" id="roofProblemOther" class="form-control mt-2 d-none" placeholder="โปรดระบุ">
+                            </div>
+
+                            <div class="form-group">
+                                <label>บริการที่ท่านสนใจ</label>
+                                <div class="radio-cards">
+                                    <div class="radio-card">
+                                        <input type="radio" id="service1" name="serviceInterest" value="Repair (จุดรั่วเดี่ยว)" required>
+                                        <label for="service1">Repair (จุดรั่วเดี่ยว)</label>
+                                    </div>
+                                    <div class="radio-card">
+                                        <input type="radio" id="service2" name="serviceInterest" value="Top up roof (ทาวน์โฮม)">
+                                        <label for="service2">Top up roof (ทาวน์โฮม)</label>
+                                    </div>
+                                    <div class="radio-card">
+                                        <input type="radio" id="service3" name="serviceInterest" value="Re Roof (รื้อเปลี่ยนทั้งผืน)">
+                                        <label for="service3">Re Roof (รื้อเปลี่ยนทั้งผืน)</label>
+                                    </div>
+                                    <div class="radio-card">
+                                        <input type="radio" id="service4" name="serviceInterest" value="Repaint (ทาสีเฉพาะคอนกรีต)">
+                                        <label for="service4">Repaint (ทาสีเฉพาะคอนกรีต)</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>พื้นที่หลังคาบ้าน (ตร.ม.)</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="roofArea1" name="roofArea" value="<150" required>
+                                        <label for="roofArea1">น้อยกว่า 150</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="roofArea2" name="roofArea" value="150-299">
+                                        <label for="roofArea2">150-299</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="roofArea3" name="roofArea" value=">300">
+                                        <label for="roofArea3">มากกว่า 300</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>งบประมาณการซ่อมแซม</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="budget1" name="renovationBudget" value="<50,000" required>
+                                        <label for="budget1">น้อยกว่า 50,000 บาท</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="budget2" name="renovationBudget" value="50,001-150,000">
+                                        <label for="budget2">50,001-150,000 บาท</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="budget3" name="renovationBudget" value="150,000-299,999">
+                                        <label for="budget3">150,000-299,999 บาท</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="budget4" name="renovationBudget" value="≥300,000">
+                                        <label for="budget4">300,000 บาทขึ้นไป</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-notice">
+                                <p>ใช้บริการทั่วประเทศ (ยกเว้น ยะลา ปัตตานี นราธิวาส)</p>
+                            </div>
+
+                            <div class="form-buttons">
+                                <button type="button" class="btn btn-next">ถัดไป</button>
+                            </div>
+                        </div>
+
+                        <div class="form-step" data-step="2">
+                            <!-- Contact information form fields - same as New Roof form -->
+                            <div class="form-group">
+                                <label>ประเภท Lead</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="reno_leadType1" name="leadType" value="Lead Opp" required>
+                                        <label for="reno_leadType1">Lead Opp</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="reno_leadType2" name="leadType" value="Lead Sale">
+                                        <label for="reno_leadType2">Lead Sale</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>ประเภทลูกค้า</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="reno_customerType1" name="customerType" value="เจ้าของบ้าน" required>
+                                        <label for="reno_customerType1">เจ้าของบ้าน</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="reno_customerType2" name="customerType" value="ผู้รับเหมา">
+                                        <label for="reno_customerType2">ผู้รับเหมา</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="reno_customerType3" name="customerType" value="นักออกแบบ">
+                                        <label for="reno_customerType3">นักออกแบบ</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="reno_customerType4" name="customerType" value="อื่นๆ">
+                                        <label for="reno_customerType4">อื่นๆ</label>
+                                    </div>
+                                </div>
+                                <input type="text" id="reno_customerTypeOther" class="form-control mt-2 d-none" placeholder="โปรดระบุ">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reno_fullName">ชื่อ-นามสกุล</label>
+                                <input type="text" id="reno_fullName" name="fullName" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reno_email">อีเมล</label>
+                                <input type="email" id="reno_email" name="email" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reno_phone">โทรศัพท์</label>
+                                <input type="tel" id="reno_phone" name="phone" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reno_address">ที่อยู่</label>
+                                <input type="text" id="reno_address" name="address" class="form-control" placeholder="บ้านเลขที่ + ถนน" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reno_subDistrict">ตำบล/แขวง</label>
+                                <input type="text" id="reno_subDistrict" name="subDistrict" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reno_district">อำเภอ/เขต</label>
+                                <input type="text" id="reno_district" name="district" class="form-control" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reno_province">จังหวัด</label>
+                                <input type="text" id="reno_province" name="province" class="form-control" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reno_zipCode">รหัสไปรษณีย์</label>
+                                <input type="text" id="reno_zipCode" name="zipCode" class="form-control" readonly>
+                            </div>
+
+                            <div class="form-buttons">
+                                <button type="button" class="btn btn-prev">ย้อนกลับ</button>
+                                <button type="submit" class="btn btn-submit">ส่งข้อมูล</button>
+                            </div>
+                        </div>
+                        <input type="hidden" name="serviceType" value="renovation">
+                    </form>
+                </div>
+
+                <!-- Metal Roof Replacement Form -->
+                <div id="metal-roof-form" class="content-section">
+                    <div class="form-header">
+                        <button class="back-btn"><i class="bi bi-arrow-left"></i></button>
+                        <h2>เปลี่ยนหลังคาเมทัลเอสซีจี</h2>
+                    </div>
+                    <form id="metalRoofForm" class="needs-validation" novalidate>
+                        <div class="progress-indicator">
+                            <div class="progress-step active" data-step="1">ข้อมูลบริการ</div>
+                            <div class="progress-step" data-step="2">ข้อมูลติดต่อ</div>
+                        </div>
+                        
+                        <div class="form-step active" data-step="1">
+                            <div class="form-group">
+                                <label>รูปแบบบ้านของท่าน</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="metal_houseType1" name="houseType" value="บ้านเดี่ยว" required>
+                                        <label for="metal_houseType1">บ้านเดี่ยว</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="metal_houseType2" name="houseType" value="ทาวน์โฮม">
+                                        <label for="metal_houseType2">ทาวน์โฮม</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="metal_houseType3" name="houseType" value="อื่นๆ">
+                                        <label for="metal_houseType3">อื่นๆ</label>
+                                    </div>
+                                </div>
+                                <input type="text" id="metal_houseTypeOther" class="form-control mt-2 d-none" placeholder="โปรดระบุ">
+                            </div>
+
+                            <div class="form-group">
+                                <label>ปัญหาหลังคาที่ท่านพบ</label>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="metal_roofProblem1" name="roofProblems" value="หลังคารั่ว">
+                                        <label for="metal_roofProblem1">หลังคารั่ว</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="metal_roofProblem2" name="roofProblems" value="หลังคาสีซีด">
+                                        <label for="metal_roofProblem2">หลังคาสีซีด</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="metal_roofProblem3" name="roofProblems" value="อื่นๆ">
+                                        <label for="metal_roofProblem3">อื่นๆ</label>
+                                    </div>
+                                </div>
+                                <input type="text" id="metal_roofProblemOther" class="form-control mt-2 d-none" placeholder="โปรดระบุ">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="metal_roofArea">พื้นที่หลังคาบ้าน (ตร.ม.)</label>
+                                <input type="number" id="metal_roofArea" name="roofArea" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="metal_budget">งบประมาณการเปลี่ยนหลังคา (บาท)</label>
+                                <div class="input-group">
+                                    <input type="number" id="metal_budget" name="metalBudget" class="form-control" required>
+                                    <span class="input-group-text">บาท</span>
+                                </div>
+                            </div>
+
+                            <div class="form-notice">
+                                <p>ใช้บริการทั่วประเทศ (ยกเว้น ยะลา ปัตตานี นราธิวาส)</p>
+                            </div>
+
+                            <div class="form-buttons">
+                                <button type="button" class="btn btn-next">ถัดไป</button>
+                            </div>
+                        </div>
+
+                        <div class="form-step" data-step="2">
+                            <!-- Contact information form fields - same as other forms -->
+                            <div class="form-group">
+                                <label>ประเภท Lead</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="metal_leadType1" name="leadType" value="Lead Opp" required>
+                                        <label for="metal_leadType1">Lead Opp</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="metal_leadType2" name="leadType" value="Lead Sale">
+                                        <label for="metal_leadType2">Lead Sale</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>ประเภทลูกค้า</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="metal_customerType1" name="customerType" value="เจ้าของบ้าน" required>
+                                        <label for="metal_customerType1">เจ้าของบ้าน</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="metal_customerType2" name="customerType" value="ผู้รับเหมา">
+                                        <label for="metal_customerType2">ผู้รับเหมา</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="metal_customerType3" name="customerType" value="นักออกแบบ">
+                                        <label for="metal_customerType3">นักออกแบบ</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="metal_customerType4" name="customerType" value="อื่นๆ">
+                                        <label for="metal_customerType4">อื่นๆ</label>
+                                    </div>
+                                </div>
+                                <input type="text" id="metal_customerTypeOther" class="form-control mt-2 d-none" placeholder="โปรดระบุ">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="metal_fullName">ชื่อ-นามสกุล</label>
+                                <input type="text" id="metal_fullName" name="fullName" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="metal_email">อีเมล</label>
+                                <input type="email" id="metal_email" name="email" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="metal_phone">โทรศัพท์</label>
+                                <input type="tel" id="metal_phone" name="phone" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="metal_address">ที่อยู่</label>
+                                <input type="text" id="metal_address" name="address" class="form-control" placeholder="บ้านเลขที่ + ถนน" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="metal_subDistrict">ตำบล/แขวง</label>
+                                <input type="text" id="metal_subDistrict" name="subDistrict" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="metal_district">อำเภอ/เขต</label>
+                                <input type="text" id="metal_district" name="district" class="form-control" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="metal_province">จังหวัด</label>
+                                <input type="text" id="metal_province" name="province" class="form-control" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="metal_zipCode">รหัสไปรษณีย์</label>
+                                <input type="text" id="metal_zipCode" name="zipCode" class="form-control" readonly>
+                            </div>
+
+                            <div class="form-buttons">
+                                <button type="button" class="btn btn-prev">ย้อนกลับ</button>
+                                <button type="submit" class="btn btn-submit">ส่งข้อมูล</button>
+                            </div>
+                        </div>
+                        <input type="hidden" name="serviceType" value="metal-roof">
+                    </form>
+                </div>
+
+                <!-- Success Message -->
+                <div id="success-message" class="content-section">
+                    <div class="success-content">
+                        <div class="success-icon">
+                            <i class="bi bi-check-circle"></i>
+                        </div>
+                        <h2>ส่งข้อมูลสำเร็จ</h2>
+                        <p>ขอบคุณสำหรับข้อมูล เจ้าหน้าที่จะติดต่อกลับโดยเร็วที่สุด</p>
+                        <button class="btn btn-return">กลับสู่หน้าหลัก</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="container">
+                <p>© 2025 SCG Roofing. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dependencies/JQL.min.js"></script>
+    <script src="https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dependencies/typeahead.bundle.js"></script>
+    <script src="https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dist/jquery.Thailand.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
